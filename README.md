@@ -8,7 +8,7 @@ It can use db.collection.watch stream below 4.0v in MongoDB
 const MongoCollectionWatcher = require('./mongoCollectionWatcher/mongoCollectionWatcher.js');
 
 watcher = new MongoCollectionWatcher('db-url', 'db-name');
-watcher.watch('collectionName', 1000, (change) => {
+watcher.watch('collectionName', IntervalMilSec, (change) => {
     let status = change['status'];
     let id = change['id'];
     let key = change['key'];
