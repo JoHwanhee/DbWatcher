@@ -8,23 +8,28 @@ It can use db.collection.watch stream below 4.0v in MongoDB
 const MongoCollectionWatcher = require('./mongoCollectionWatcher/mongoCollectionWatcher.js');
 
 watcher = new MongoCollectionWatcher('db-url', 'db-name');
-watcher.watch('collectionName', milsec, (status, id, key, before, after) => {
+watcher.watch('collectionName', 1000, (change) => {
+    let status = change['status'];
+    let id = change['id'];
+    let key = change['key'];
+    let before = change['before'];
+    let after = chagne['after'];
+
     switch (status) {
         case 'inserted':
-            // todo something
+            // todo
             break;
         case 'changed':
-            // todo something
+            // todo
             break;
         case 'deleted':
-            // todo something
+            // todo
             break;
-        case 'same':
-            // toso something
         default:
             break;
     }
 });
+
 ```
 
 # Dependency
