@@ -9,7 +9,7 @@ const MongoCollectionWatcher = require('./mongoCollectionWatcher/mongoCollection
 
 watcher = new MongoCollectionWatcher();
 watcher.initDB('db-url', 'db-name');
-watcher.watch('users', 1000, (status, id, key, before, after) => {
+watcher.watch('collectionName', milsec, (status, id, key, before, after) => {
     switch (status) {
         case 'insert':
             // todo something
