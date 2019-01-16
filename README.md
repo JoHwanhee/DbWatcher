@@ -11,13 +11,13 @@ watcher = new MongoCollectionWatcher();
 watcher.initDB('db-url', 'db-name');
 watcher.watch('collectionName', milsec, (status, id, key, before, after) => {
     switch (status) {
-        case 'insert':
+        case 'inserted':
             // todo something
             break;
         case 'changed':
             // todo something
             break;
-        case 'delete':
+        case 'deleted':
             // todo something
             break;
         case 'same':
