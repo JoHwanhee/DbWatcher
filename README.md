@@ -8,7 +8,7 @@ It can use db.collection.watch stream. below 4.0v in MongoDB
 const MongoCollectionWatcher = require('./mongoCollectionWatcher/mongoCollectionWatcher.js');
 
 watcher = new MongoCollectionWatcher();
-watcher.initDB('mongodb+srv://hwanhee:hwanhee@cluster0-89apv.mongodb.net/english-learning-localdev', 'english-learning-localdev');
+watcher.initDB('db-url', 'db-name');
 watcher.watch('users', 1000, (status, id, key, before, after) => {
     switch (status) {
         case 'insert':
