@@ -29,5 +29,5 @@ watcher.watch('users', 1000, (status, id, key, before, after) => {
 ```
 
 # Dependency
-"mongodb": "~3.0.8",
-"deep-diff": "~1.0.2",
+"mongodb": "~3.0.8",  
+"deep-diff": "~1.0.2",  
