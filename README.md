@@ -25,6 +25,9 @@ watcher.watch('collectionName', IntervalMilSec, (change) => {
         case 'deleted':
             // todo
             break;
+        case 'same':
+            // todo
+            break;
         default:
             break;
     }
