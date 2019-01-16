@@ -7,8 +7,7 @@ It can use db.collection.watch stream below 4.0v in MongoDB
 ```javascript
 const MongoCollectionWatcher = require('./mongoCollectionWatcher/mongoCollectionWatcher.js');
 
-watcher = new MongoCollectionWatcher();
-watcher.initDB('db-url', 'db-name');
+watcher = new MongoCollectionWatcher('db-url', 'db-name');
 watcher.watch('collectionName', milsec, (status, id, key, before, after) => {
     switch (status) {
         case 'inserted':
