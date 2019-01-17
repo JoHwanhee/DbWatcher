@@ -34,8 +34,11 @@ watcher.watch('collectionName', IntervalMilSec, (change) => {
 });
 ```
 
-#### change  
+#### changed  
 ![](./image.png)
+
+#### inserted
+![](./inserted.png)
 
 # Dependency
 "mongodb": "~3.0.8",  
