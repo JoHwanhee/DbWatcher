@@ -34,7 +34,7 @@ watcher.watch('collectionName', IntervalMilSec, (change) => {
 });
 ```
 
-change
+#### change  
 ![](./image.png)
 
 # Dependency
