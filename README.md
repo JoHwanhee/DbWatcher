@@ -32,9 +32,38 @@ watcher.watch('collectionName', IntervalMilSec, (change) => {
             break;
     }
 });
-
 ```
 
+change
+```json
+{ status: 'same',
+  id: '',
+  key: '',
+  before:
+   [ { _id: 5c40886f1c9d440000920be5,
+       subscriptionLesson: 2,
+       extraSubscriptionLesson: 1,
+       completedSubscriptionLesson: 1,
+       completedExtraSubscriptionLesson: 1,
+       currentPackage: 'currentPackage',
+       trialLessonLimit: 3,
+       fullName: 'johwanhee',
+       email: 'kikiki0611@naver.com',
+       createdAt: '2019-01-11T15:04:42.371+00:00',
+       updatedAt: '2019-01-11T15:04:42.371+00:00' } ],
+  after:
+   [ { _id: 5c40886f1c9d440000920be5,
+       subscriptionLesson: 2,
+       extraSubscriptionLesson: 1,
+       completedSubscriptionLesson: 1,
+       completedExtraSubscriptionLesson: 1,
+       currentPackage: 'currentPackage',
+       trialLessonLimit: 3,
+       fullName: 'johwanhee',
+       email: 'kikiki0611@naver.com',
+       createdAt: '2019-01-11T15:04:42.371+00:00',
+       updatedAt: '2019-01-11T15:04:42.371+00:00' } ] }
+```
 # Dependency
 "mongodb": "~3.0.8",  
 "deep-diff": "~1.0.2",  
