@@ -35,7 +35,7 @@ watcher.watch('collectionName', IntervalMilSec, (change) => {
 ```
 
 #### changed  
-![](./image.png)
+![](./changed.jpg)
 
 #### inserted
 ![](./inserted.jpg)
