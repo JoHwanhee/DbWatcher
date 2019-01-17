@@ -1,6 +1,6 @@
 utils = {}
 
-utils.isEmpty = (object) => {
+utils.isEmpty = function(object) {
     if(object === "undefined" || object == "undefined" || object == null || object === null){
         return true;
     }

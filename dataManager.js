@@ -1,5 +1,5 @@
 const diff = require('deep-diff');
-const utils = require('./utils');
+const utils = require('./utils.js');
 
 function DataManager() {
     this.data = []
@@ -12,7 +12,7 @@ DataManager.prototype.init = function(data) {
 DataManager.prototype.getChangedDataList = function(inputData) {
     let changedDataList = []
 
-    if(this.isSmame(inputData)){
+    if(this.isSame(inputData)){
         changedDataList = this.parseSameDataList(inputData);
     }
     else if(this.isInsert(inputData)) {
@@ -54,18 +54,25 @@ DataManager.prototype.isInsert = function(inputData){
 }
 
 DataManager.prototype.parseInsertDataList  = function(inputData){
-    let status = "insert";
+    let status = "inserted";
+    let changes = diff(this.data, inputData);
     let changedDataList = []
 
-    let data = {
-        id: changedCollectionId,
-        status: status,
-        changed: 'document',
-        before: before,
-        after: after
-    }
+    for(let i = 0; i < changes.length; i ++){
+        let newData = changes[i]['item']['rhs'];
+        let status = "inserted";
+        let id = newData['_id'];
 
-    changedDataList.push(data);
+        let data = {
+            id: id,
+            status: status,
+            changed: 'document',
+            before: 'none',
+            after: newData
+        }
+
+        changedDataList.push(data);
+    }
 
     return changedDataList;
 }
@@ -75,18 +82,25 @@ DataManager.prototype.isDelete = function(inputData){
 }
 
 DataManager.prototype.parseDeleteDataList  = function(inputData){
-    let status = "delete";
+    let status = "deleted";
+    let changes = diff(this.data, inputData);
     let changedDataList = []
 
-    let data = {
-        id: changedCollectionId,
-        status: status,
-        changed: 'document',
-        before: before,
-        after: after
-    }
+    for(let i = 0; i < changes.length; i ++){
+        let deletedData = changes[i]['item']['lhs'];
+        let status = "deleted";
+        let id = deletedData['_id'];
 
-    changedDataList.push(data);
+        let data = {
+            id: id,
+            status: status,
+            changed: 'document',
+            before: deletedData,
+            after: 'none'
+        }
+
+        changedDataList.push(data);
+    }
 
     return changedDataList;
 }
@@ -116,9 +130,9 @@ DataManager.prototype.parseChangedDataList = function(inputData){
             before: before,
             after: after
         }
+        changedDataList.push(data);
     }
 
-    changedDataList.push(data);
     return changedDataList;
 }
 

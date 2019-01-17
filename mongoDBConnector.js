@@ -1,14 +1,9 @@
 const mongodb = require('mongodb');
 
-function MongoDBConnector() {
-    this.uri = '';
-    this.dbName = ''
- }
-
-MongoDBConnector.prototype.init = function(uri, dbName){
+function MongoDBConnector(uri, dbName) {
     this.uri = uri;
     this.dbName = dbName;
-}
+ }
 
 MongoDBConnector.prototype.getData = async function(collectionName) {
     let promise = new Promise(resolve => {
