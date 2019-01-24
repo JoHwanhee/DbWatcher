@@ -47,4 +47,4 @@ watcher.watch('collectionName', IntervalMilSec, (change) => {
 
 # Dependency
 "mongodb": "~3.0.8",  
-"deep-diff": "~1.0.2",  
+"deep-diff": "~1.0.2",
